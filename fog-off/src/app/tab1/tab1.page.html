@@ -1,41 +1,73 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab One
-    </ion-title>
-  </ion-toolbar>
+<ion-toolbar>
+	<ion-title>
+	Profile
+	</ion-title>
+</ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <img src="/assets/profile_bkg.svg" alt="" />
-      <ion-card-header>
-        <!-- <ion-card-subtitle>Get Started</ion-card-subtitle> -->
-        <ion-card-title>Profile</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item>
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Username</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Level </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Distance Covered</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Skills</ion-label>
-      </ion-item>
-    </ion-list>
+
+	<ion-card class="welcome-card">
+	<img src="/assets/character.gif" alt="" />
+	</ion-card>
+
+	<!-- <ion-list inset lines="none"> -->
+	<!-- <ion-list-header> -->
+		<!-- <ion-label>Player Information</ion-label> -->
+	<!-- </ion-list-header> -->
+
+	<ion-row>
+		<ion-col align-self-center text-center>
+			<ion-item text-center color="clear" class="ion-padding fs2">
+				<ion-label>	Statistics </ion-label>
+			</ion-item>
+		</ion-col>
+	</ion-row>
+	
+	<ion-row>
+		<ion-col align-self-center text-center>
+			<ion-button class="button-large button-full" fill="clear" color="dark" onclick="inputName()">
+				<div>
+					<ion-icon slot="start" color="vibrant" name="person"></ion-icon>
+					<br>
+					<ion-label>Player 1</ion-label>
+				</div>
+			</ion-button>
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col align-self-center text-center>
+			<ion-card color="tertiary">
+				<ion-button class="button-large button-full" fill="clear" color="warning" onclick="inputName()">
+					<div>
+						<ion-icon slot="start" color="vibrant" name="trending-up"></ion-icon>
+						<br>
+						<ion-label>Level</ion-label>
+					</div>
+				</ion-button>
+				<ion-card-content id="lvl">
+						<ion-badge item-end color="danger" class="fs1 p05">17</ion-badge>
+				</ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col align-self-center text-center>
+			<ion-card color="tertiary">
+				<ion-button class="button-large button-block" fill="clear" color="warning" onclick="inputName()">
+					<div>
+						<ion-icon slot="start" color="vibrant" name="podium"></ion-icon>
+						<br>
+						<ion-label>Distance Covered</ion-label>
+					</div>
+				</ion-button>
+				
+				<ion-card-content color="royal" id="dist">
+					<ion-badge item-end color="danger" class="fs1 p05">8 km</ion-badge>
+				</ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row>	
+
 </ion-content>
