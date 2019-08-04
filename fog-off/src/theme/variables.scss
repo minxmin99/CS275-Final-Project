@@ -74,4 +74,15 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-background-color:#67cad5;
+
+  --ion-font-family: 'Work Sans';
+}
+
+@font-face {
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 }

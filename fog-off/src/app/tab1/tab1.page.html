@@ -27,11 +27,11 @@
 	
 	<ion-row>
 		<ion-col align-self-center text-center>
-			<ion-button class="button-large button-full" fill="clear" color="dark" onclick="inputName()">
+			<ion-button class="button-large button-full" fill="clear" color="dark" (click)="openAlert()">
 				<div>
 					<ion-icon slot="start" color="vibrant" name="person"></ion-icon>
 					<br>
-					<ion-label>Player 1</ion-label>
+					<ion-label id="username" [innerHTML]="username"> Player 1</ion-label>
 				</div>
 			</ion-button>
 		</ion-col>
