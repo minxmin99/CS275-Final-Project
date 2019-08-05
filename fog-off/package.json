@@ -1,6 +1,6 @@
 {
   "name": "fog-off",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
@@ -21,14 +21,20 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/geolocation": "^5.11.0",
+    "@ionic-native/google-maps": "^5.5.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
-    "cordova-android": "^8.0.0",
+    "cordova-android": "^6.4.0",
+    "cordova-browser": "6.0.0",
     "cordova-ios": "^5.0.1",
+    "cordova-plugin-geolocation": "^4.0.2",
+    "cordova-plugin-googlemaps": "^2.6.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
+    "variable": "0.0.3",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -71,20 +77,19 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-googlemaps": {
+        "PLAY_SERVICES_VERSION": "15.0.1",
+        "ANDROID_SUPPORT_V4_VERSION": "27.+",
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
+        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
+      }
     },
     "platforms": [
       "ios",
+      "browser",
       "android"
     ]
-  },
-  "main": "karma.conf.js",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/minxmin99/CS275-Final-Project.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/minxmin99/CS275-Final-Project/issues"
   }
 }

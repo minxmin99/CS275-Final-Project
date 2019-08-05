@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 // import { ModalPagePage } from '../modal-page/modal-page.page';
-// import { AlertPagePage } from '../alert-page/alert-page.page';
+import { AlertPagePage } from '../alert-page/alert-page.page';
 
 
 @Component({
@@ -47,10 +47,13 @@ export class Tab1Page {
           handler: (data) => {
 
             // TODO: Check new name legitimacy
-
-            console.log("New name")
-            console.log(data.new_username)
-            this.username = data.new_username;
+            if (data.new_username == "") {
+              console.log("Error: Empty name input")
+            } else {
+              console.log("New name")
+              console.log(data.new_username)
+              this.username = data.new_username;
+            }
           }
         }
       ]
