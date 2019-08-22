@@ -4,6 +4,6 @@ export interface AuthResponse {
         name: string,
         email: string,
         access_token: string,
-        express_in: number
+        expires_in: number
     }
 }
