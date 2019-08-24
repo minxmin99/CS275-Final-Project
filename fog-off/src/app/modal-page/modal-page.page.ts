@@ -6,15 +6,15 @@ import { NavController, ModalController } from '@ionic/angular';
   styleUrls: ['./modal-page.page.scss'],
 })
 export class ModalPagePage implements OnInit {
-
-  constructor(private nav:NavController, private modal:ModalController) { }
+  
+  newAva: string = "New Ava";
+  constructor(private nav:NavController, private modalCtrl:ModalController) { }
 
   ngOnInit() {
   }
 
-  // TODO: Assign closemodal() on HTML side
-  closeModal() {
-    this.modal.dismiss();
+  dismissAvaModal() {
+    this.modalCtrl.dismiss(this.newAva);
   }
 
 }

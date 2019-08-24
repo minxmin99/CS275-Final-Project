@@ -1,18 +1,18 @@
 <ion-header>
-<ion-toolbar>
-	<ion-title text-center>
-	Profile
-	</ion-title>
-</ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>
+		Profile
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-	<ion-card class="welcome-card">
-	<img src="/assets/character.gif" alt="" />
+	<ion-card class="welcome-card" (click)="openAvaModal()">
+		<img src="/assets/character.gif" alt="" />
 	</ion-card>
 
-	<!-- <ion-list inset lines="none"> -->
+	<!-- <ion-list inset lines="none"> -->	
 	<!-- <ion-list-header> -->
 		<!-- <ion-label>Player Information</ion-label> -->
 	<!-- </ion-list-header> -->

@@ -13,6 +13,7 @@ import {
 	CameraPosition,
 	TileOverlayOptions,
 	TileOverlay,
+	Geocoder
 } from '@ionic-native/google-maps';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -35,6 +36,7 @@ export class Tab2Page {
 		public nav: NavController) {}
 
 	
+	// Main view initialization
 	ngAfterViewInit() {
 
 		let tileProvider = new TileProvider();
@@ -52,14 +54,18 @@ export class Tab2Page {
 		})
 	}
 
+	// Utilities functions
+
 	addMapFunctionality(map: GoogleMap, overlay: TileOverlay, loc: LatLng, tileProvider: TileProvider) {
 
 		var currentOverlay: TileOverlay;
 
 		// Init Google Maps
-		map.one(GoogleMapsEvent.MAP_READY).then(() => {
+		map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
 				
 			console.log("Google Map running")
+
+			this.addClickLocation(map, currentOverlay, tileProvider);
 
 			this.addOverlayOne(map, tileProvider).then((overlay:TileOverlay) => {
 				currentOverlay = overlay;
@@ -70,17 +76,26 @@ export class Tab2Page {
 			});
 
 			// Get current location
-			this.getLocation().subscribe( res => {
+			this.getLocation().subscribe((res) => {
+
+				
+
+				console.log("[GetLocation] Res " + res + " " + res.coords)
 
 				// Get new location
 				loc = new LatLng(res.coords.latitude, res.coords.longitude);
 				this.moveCamera(loc);
 				// marker.setPosition(loc);
 
-				// Check new position
-				tileProvider.setExplored(loc, map.getCameraZoom());
 
-				currentOverlay =  this.updateOverlay(map, currentOverlay, tileProvider);
+				// Make sure the player is walking and not cheating by driving
+				// Only then set explore and update cloud
+				if (this.checkSpeed(res.coords.speed)) {
+					// Check new position
+					tileProvider.setExplored(loc, map.getCameraZoom());
+
+					currentOverlay =  this.updateOverlay(map, currentOverlay, tileProvider);
+				};
 
 			}, (err) => {
 				console.log("[GetLocation] " + err)
@@ -89,6 +104,7 @@ export class Tab2Page {
 		});	
 	}
 
+	// Project lattitude and longitude to World Coord to be converted to Tile Coord
 	project(latLng: LatLng) {
 
 		let TILE_SIZE = 256
@@ -104,7 +120,7 @@ export class Tab2Page {
 			TILE_SIZE * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI))];
 	}
 
-	// MAP FUNCTIONS
+	// MAP MAIN FUNCTIONS
 	isNight(){
 		//Returns true if the time is between
 		//7pm to 5am
@@ -114,7 +130,10 @@ export class Tab2Page {
 
 	initMap() {
 
+		// Default location to init map in case current position is not catched
 		let style = [];
+
+		var initCoord = [33.6396965, -84.4304574];
 
 		if (this.isNight()) {
 			style = mapStyle;
@@ -122,11 +141,22 @@ export class Tab2Page {
 			style = mapStyleDay;
 		}
 
+		// Get current location
+		this.geolocation.getCurrentPosition().then((res) => {
+			
+			initCoord = [];
+			initCoord.push(res.coords.latitude);
+			initCoord.push(res.coords.longitude);
+
+		}).catch((err) => {
+			console.log("[GetInitCoord] " + initCoord)
+		})
+
 		let mapOptions: GoogleMapOptions = {
 			camera: {
 				target: {
-					lat: 33.6396965,
-					lng: -84.4304574,
+					lat: initCoord[0],
+					lng: initCoord[1],
 				},
 				zoom: 16,
 				tilt: 30
@@ -144,15 +174,44 @@ export class Tab2Page {
 				zoom: false
 			}
 		};
+
 		this.map = this.googleMaps.create('map', mapOptions);
-		
+	}
+
+	// LOCATION UTILITIES
+	addClickLocation(map: GoogleMap, currentOverlay: TileOverlay, tileProvider: TileProvider) {
+
+		this.map.on(GoogleMapsEvent.MY_LOCATION_BUTTON_CLICK).subscribe(() => {
+			this.updateOverlay(map, currentOverlay, tileProvider);
+		})
+	}
+
+	locationOptions() {
+		return { 
+			maximumAge: 10000, // max 10 second old cache location
+			timeout: 240000, // position error after 4 minutes call for location 
+			// enableHighAccuracy: true 
+		}
 	}
 
 	getLocation() {
 
-		return this.geolocation.watchPosition()
+		return this.geolocation.watchPosition(this.locationOptions())
+
 	}
 
+	// Check player moving speed
+	checkSpeed(speed: number) {
+
+		let MAX_WALK_SPEED = 2.8 // in ms or ~10kmh so include running
+		if (speed < MAX_WALK_SPEED) {
+			return true
+		}
+
+		return false
+	}
+
+	// MAP SIDE UTILITIES
 	moveCamera(loc: LatLng) {
 
 		let options: CameraPosition<LatLng> = {
@@ -176,8 +235,8 @@ export class Tab2Page {
 		return currentMarker;
 	}
 
-	// TILES OVERLAY FUNCTIONS
 
+	// TILES OVERLAY FUNCTIONS
 	addOverlayOne(map: GoogleMap ,tileProvider: TileProvider) {
 
 		return map.addTileOverlay(this.getOverlayOptions(tileProvider));
@@ -193,6 +252,7 @@ export class Tab2Page {
 		console.log("[UpdateOverlay] Add new Layer");
 		this.addOverlayOne(map, tileProvider).then((overlay: TileOverlay) => {
 			newOverlay = overlay;
+
 		}).catch((err) => {
 			console.log("[UpdateOverlay] " + err)
 		});
@@ -221,7 +281,7 @@ export class Tab2Page {
 			visible: true,
 			zIndex: 0,
 			tileSize: 256,
-			opacity: 0.4,
+			opacity: 0.8,
 		  
 			debug: true
 		};

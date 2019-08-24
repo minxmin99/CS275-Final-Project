@@ -54,16 +54,26 @@ export class TileProvider {
 
     // zoom should be 17 if zoom in mapOptions is 16
     zoom += 1;
+    let zoom_ = zoom.toString()
 
     // Obtain tile coordinate from real lattitude and longitude
     // Plus one since tileProvider() above always seems to call API URL at zoom = zoom + 1 (for eg: console shows zoom_ = 16 but API calls show 17)
     let x = this.getTileCoord(loc, zoom)[0]
     let y = this.getTileCoord(loc, zoom)[1]
 
-    let hash = x + y + zoom.toString();
+    let hash_current = x.toFixed() + y.toFixed() + zoom_;
+    let hash_up = x.toFixed() + (y + 1).toFixed() + zoom_;
+    let hash_low = x.toFixed() + (y - 1).toFixed() + zoom_;
+    let hash_right = (x + 1).toFixed() + y.toFixed() + zoom_;
+    let hash_left = (x - 1).toFixed() + y.toFixed() + zoom_;
 
-    this.tileMap.set(hash, null);
-    console.log("[SetExplored] Loc to TileCoord" + x + " " + y);
+    this.tileMap.set(hash_current, null);
+    this.tileMap.set(hash_up, null);
+    this.tileMap.set(hash_low, null);
+    this.tileMap.set(hash_right, null);
+    this.tileMap.set(hash_left, null);
+
+    console.log("[SetExplored] Loc to TileCoord " + x + " " + y + " " + zoom);
   }
 
   project(latLng: LatLng) {
@@ -84,8 +94,8 @@ export class TileProvider {
   getTileCoord(loc: LatLng, zoom: number) {
 
     // zoom should be 17 if zoom on mapOptions is 16
-    let x = (this.project(loc)[0] * (2 ** (zoom)) / 256).toFixed();
-    let y = (this.project(loc)[1] * (2 ** (zoom)) / 256).toFixed();
+    let x = (this.project(loc)[0] * (2 ** (zoom)) / 256);
+    let y = (this.project(loc)[1] * (2 ** (zoom)) / 256);
 
     return [x, y]
 
@@ -96,14 +106,27 @@ export class TileProvider {
     var URL: string = "https://api.maptiler.com/maps/darkmatter/256/" + zoom +  "/" + x + "/" + y + ".png?key=eekFiCeDrAQ6v31lORdC"
     
     // Get current location TileCoord
-    let currentLoc_x = this.getTileCoord(this.currentLoc, zoom - 1)[0]
-    let currentLoc_y = this.getTileCoord(this.currentLoc, zoom - 1)[1]
+    let currentTileLoc_x = this.getTileCoord(this.currentLoc, zoom - 1)[0].toFixed();
+    let currentTileLoc_y = this.getTileCoord(this.currentLoc, zoom - 1)[1].toFixed();
 
+    // let left_Loc_x = (this.getTileCoord(this.currentLoc, zoom - 1)[0] - 1).toFixed();
+    // let right_Loc_x = (this.getTileCoord(this.currentLoc, zoom - 1)[0] + 1).toFixed();
+    
+    // let up_Loc_y = (this.getTileCoord(this.currentLoc, zoom - 1)[1] + 1).toFixed();
+    // let low_Loc_y = (this.getTileCoord(this.currentLoc, zoom - 1)[1] - 1).toFixed();
+    
     // Check if current location TileCoord is the same as newly reqeuested TileCoord
-    if (currentLoc_x == x.toString() && currentLoc_y == y.toString()) {
+    if (currentTileLoc_x == x.toString() && currentTileLoc_y == y.toString()) {
+        // // (x, y)
+        // (left_Loc_x == x.toString() && currentTileLoc_y == y.toString()) || 
+        // (right_Loc_x == x.toString() && currentTileLoc_y == y.toString()) || 
+        // // (x-1, y) (x+1, y)
+        // (currentTileLoc_x == x.toString() && up_Loc_y == y.toString()) ||
+        // (currentTileLoc_x == x.toString() && low_Loc_y == y.toString()) ) {
+        // // (x, y-1) (x, y+1)
       return null
     } else {
-      return URL
+      return URL  
     }
     
   }

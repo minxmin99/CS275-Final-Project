@@ -1,6 +1,14 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>ModalPage</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title> Edit your character</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tab1" (click)="dismissAvaModal()"
+          [text]="Save"
+          [icon]="ios-arrow-back">
+      </ion-back-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 

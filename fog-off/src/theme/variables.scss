@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #293137;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -12,7 +12,7 @@
   --ion-color-primary-tint: #4c8dff;
 
   /** secondary **/
-  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary: #353535;
   --ion-color-secondary-rgb: 12, 209, 232;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
@@ -46,7 +46,7 @@
   /** danger **/
   --ion-color-danger: #f04141;
   --ion-color-danger-rgb: 245, 61, 61;
-  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast: #fce2ab;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
   --ion-color-danger-shade: #d33939;
   --ion-color-danger-tint: #f25454;
@@ -75,14 +75,14 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  --ion-background-color:#67cad5;
+  --ion-background-color:#353535;
 
-  --ion-font-family: 'Work Sans';
+  --ion-font-family: 'Righteous';
 }
 
 @font-face {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Righteous', cursive;
   font-style: normal;
   font-weight: normal;
-  src: url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+  src: url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 }

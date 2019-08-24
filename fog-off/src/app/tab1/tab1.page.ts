@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
-// import { ModalPagePage } from '../modal-page/modal-page.page';
-import { AlertPagePage } from '../alert-page/alert-page.page';
+import { ModalPagePage } from '../modal-page/modal-page.page';
+// import { AlertPagePage } from '../alert-page/alert-page.page';
 
 
 @Component({
@@ -11,16 +11,23 @@ import { AlertPagePage } from '../alert-page/alert-page.page';
 })
 export class Tab1Page {
 
-  constructor(private modal: ModalController, 
+  constructor(private modalCtr: ModalController, 
     private alert:AlertController
-    ) {}
+    ) {
+      
+    }
 
-  // async openModal() {
-  //   const nameModal = await this.modal.create({
-  //     component: ModalPagePage
-  //   });
-  //   return await nameModal.present();
-  // }
+  async openAvaModal() {
+    const avaModal = await this.modalCtr.create({
+      component: ModalPagePage
+    });
+
+    avaModal.onDidDismiss().then((data) => {
+      // Get new characters
+    });
+
+    return await avaModal.present();
+  }
 
   username: string = "Player 1"; 
 
