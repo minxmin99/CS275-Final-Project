@@ -37,3 +37,10 @@ ion-grid {
     max-height: 20vh;
     overflow: hidden;
   }
+
+app-tab3 {
+    .image-container {
+        min-height: 125px;
+        background-size: cover;
+    }
+}
