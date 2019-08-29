@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title text-center>
     Achievements Bin 
     </ion-title>
@@ -20,41 +20,27 @@
         </ion-col>
       </ion-row>
 
-      <ion-grid>
+      <ion-segment [(ngModel)]="galleryType" color="primary">
+      </ion-segment>
+     
+      <div [ngSwitch]="galleryType">
+        <!-- Responsive Layout with Ion Grid-->
           <ion-row>
-            <ion-col align-self-center>
-              1 of 12
-            </ion-col>
-            <ion-col align-self-center>
-              2 of 12 
-            </ion-col>
-            <ion-col align-self-center>
-              3 of 12
+            <ion-col sizeMd="3" *ngFor="let image of [1,2,3,4,5,6,7,8,9,10,11,12]">
+              <img class='image-container' src='/assets/img/{{image}}.png'>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <ion-col align-self-center>
-              4 of 12
-            </ion-col>
-            <ion-col align-self-center>
-              5 of 12
-            </ion-col>
-            <ion-col align-self-center>
-              6 of 12
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col align-self-center>
-                7 of 12
-              </ion-col>
-              <ion-col align-self-center>
-                8 of 12
-              </ion-col>
-              <ion-col align-self-center>
-                9 of 12
-              </ion-col>
-            </ion-row>
-        </ion-grid>
+        </div>
 
-
+          <ion-button (click)="toggleInfiniteScroll()" expand="block">
+            Let's See Some More
+          </ion-button>
+        
+          <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content
+              loadingSpinner="bubbles"
+              loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+          
 </ion-content>
