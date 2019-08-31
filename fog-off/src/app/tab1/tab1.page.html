@@ -8,9 +8,34 @@
 
 <ion-content>
 
-	<ion-card class="welcome-card" (click)="openAvaModal()">
-		<img src="/assets/character.gif" alt="" />
-	</ion-card>
+	<!--<ion-card (click)="openAvaModal()">
+		<img [src]="imageSrc" class="u_char" alt="" />
+	</ion-card>-->
+	<ion-row>
+		<ion-col align-self-center text-center>
+			<ion-button class="button-large button-full" fill="clear" color="dark" (click)="openAlert()">
+				<div>
+					<ion-icon slot="start" color="vibrant" name="person"></ion-icon>
+					<br>
+					<ion-label id="username" [innerHTML]="username"> Player 1</ion-label>
+				</div>
+			</ion-button>
+		</ion-col>
+	</ion-row>
+
+	<div class="char_container one-edge-shadow" (click)="openAvaModal()">
+		<img [src]="imageSrc" class="u_char center_char" alt="" />
+	</div>
+
+	<ion-row>
+		<ion-col align-self-center text-center>
+			<ion-button class="button-large button-full" fill="clear" color="light" (click)="openAvaModal()">
+				<ion-icon name="body" color="light"></ion-icon>
+				<ion-label color="light"> Edit Character</ion-label>
+			</ion-button>
+		</ion-col>
+	</ion-row>
+	
 
 	<!-- <ion-list inset lines="none"> -->	
 	<!-- <ion-list-header> -->
@@ -24,18 +49,7 @@
 			</ion-item>
 		</ion-col>
 	</ion-row>
-	
-	<ion-row>
-		<ion-col align-self-center text-center>
-			<ion-button class="button-large button-full" fill="clear" color="dark" (click)="openAlert()">
-				<div>
-					<ion-icon slot="start" color="vibrant" name="person"></ion-icon>
-					<br>
-					<ion-label id="username" [innerHTML]="username"> Player 1</ion-label>
-				</div>
-			</ion-button>
-		</ion-col>
-	</ion-row>
+
 	<ion-row>
 		<ion-col align-self-center text-center>
 			<ion-card color="tertiary">

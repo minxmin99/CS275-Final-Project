@@ -75,7 +75,39 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  --ion-background-color:#353535;
+  /**neongreen**/
+  --ion-color-neongreen: #1e8f3a;
+  --ion-color-neongreen-rgb: 30, 143, 58;
+  --ion-color-neongreen-contrast: #ffffff;
+  --ion-color-neongreen-contrast-rgb: 255, 255, 255;
+  --ion-color-neongreen-shade: #17781c;
+  --ion-color-neongreen-tint: #259c3b;
+
+  /**cerulean**/
+  --ion-color-cerulean: #2a62bd;
+  --ion-color-cerulean-rgb: 42, 98, 189;
+  --ion-color-cerulean-contrast: #ffffff;
+  --ion-color-cerulean-contrast-rgb: 255, 255, 255;
+  --ion-color-cerulean-shade: #1c3e8c;
+  --ion-color-cerulean-tint: #3882c7;
+
+  /**ksupurple**/
+  --ion-color-ksupurple: #581e8f;
+  --ion-color-ksupurple-rgb: 88, 30, 143;
+  --ion-color-ksupurple-contrast: #ffffff;
+  --ion-color-ksupurple-contrast-rgb: 255, 255, 255;
+  --ion-color-ksupurple-shade: #3f1982;
+  --ion-color-ksupurple-tint: #66259c;
+
+  /**persianred**/
+  --ion-color-persianred: #bd2a33;
+  --ion-color-persianred-rgb: 204, 52, 49;
+  --ion-color-persianred-contrast: #ffffff;
+  --ion-color-persianred-contrast-rgb: 255, 255, 255;
+  --ion-color-persianred-shade: #8e1c35;
+  --ion-color-persianred-tint: #cc3431;
+
+  --ion-background-color:#5a5a5a;
 
   --ion-font-family: 'Righteous';
 }

@@ -1,0 +1,63 @@
+.vague-content {
+    //background-color: transparent;
+    background-color: rgb(0, 0, 0, 0)
+}
+
+.char_container {
+    border-bottom: 1px solid gray;
+    padding-bottom: 2%;
+    margin: 5%;
+  }
+  
+.u_char {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.center_char {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.cc_spacing {
+    margin: 5%;
+}
+
+.ion-color-neongreen {
+    --ion-color-base: var(--ion-color-neongreen);
+    --ion-color-base-rgb: var(--ion-color-neongreen-rgb);
+    --ion-color-contrast: var(--ion-color-neongreen-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-neongreen-contrast-rgb);
+    --ion-color-shade: var(--ion-color-neongreen-shade);
+    --ion-color-tint: var(--ion-color-neongreen-tint);
+  }
+  
+  .ion-color-cerulean {
+    --ion-color-base: var(--ion-color-cerulean);
+    --ion-color-base-rgb: var(--ion-color-cerulean-rgb);
+    --ion-color-contrast: var(--ion-color-cerulean-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-cerulean-contrast-rgb);
+    --ion-color-shade: var(--ion-color-cerulean-shade);
+    --ion-color-tint: var(--ion-color-cerulean-tint);
+  }
+  
+  .ion-color-ksupurple {
+    --ion-color-base: var(--ion-color-ksupurple);
+    --ion-color-base-rgb: var(--ion-color-ksupurple-rgb);
+    --ion-color-contrast: var(--ion-color-ksupurple-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-ksupurple-contrast-rgb);
+    --ion-color-shade: var(--ion-color-ksupurple-shade);
+    --ion-color-tint: var(--ion-color-ksupurple-tint);
+  }
+  
+  .ion-color-persianred {
+    --ion-color-base: var(--ion-color-persianred);
+    --ion-color-base-rgb: var(--ion-color-persianred-rgb);
+    --ion-color-contrast: var(--ion-color-persianred-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-persianred-contrast-rgb);
+    --ion-color-shade: var(--ion-color-persianred-shade);
+    --ion-color-tint: var(--ion-color-persianred-tint);
+  }

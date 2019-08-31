@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 import { ModalPagePage } from '../modal-page/modal-page.page';
+import { async } from 'q';
+import { OverlayEventDetail } from '@ionic/core';
 // import { AlertPagePage } from '../alert-page/alert-page.page';
 
 
@@ -16,14 +18,29 @@ export class Tab1Page {
     ) {
       
     }
+    
+  imageSrc = "assets/adventurers/Blue_Adv.png";
 
+  testoutput: string = "yessir";
   async openAvaModal() {
     const avaModal = await this.modalCtr.create({
-      component: ModalPagePage
-    });
+      component: ModalPagePage,
+      componentProps: {
+        red_adv: "assets/adventurers/Red_Adv.png",
+        purple_adv: "assets/adventurers/Purple_Adv.png",
+        blue_adv: "assets/adventurers/Blue_Adv.png",
+        green_adv: "assets/adventurers/Green_Adv.png",
+      }
 
-    avaModal.onDidDismiss().then((data) => {
+    });
+    
+    avaModal.onDidDismiss().then((detail: OverlayEventDetail) => {
       // Get new characters
+      if ((detail.data).includes("assets/adventurers/")){
+        this.imageSrc = detail.data;
+      } else { //prevents any changes when pressing back button
+        this.imageSrc = this.imageSrc;
+      }
     });
 
     return await avaModal.present();
