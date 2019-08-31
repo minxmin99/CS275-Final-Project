@@ -9,52 +9,17 @@
 <ion-content>
 
     <ion-card>
-    <img src="/assets/character.gif" alt=""/>
+    <img src="/assets/character1.gif" alt=""/>
     </ion-card>
-  
-    <ion-row>
-        <ion-col align-self-center text-center>
-          <ion-item text-center color=success>
-            <ion-label>	Badges </ion-label>
-          </ion-item>
+   
+    <!-- Responsive Layout with Ion Grid-->
+    <ion-grid >
+      <ion-row>
+        <ion-col size="4" *ngFor="let image of [1,2,3,4,5,6,7,8,9,10,11,12]">
+          <img class="image-container" src='/assets/img/{{image}}.jpg'>
         </ion-col>
       </ion-row>
-
-      <ion-grid>
-          <ion-row>
-            <ion-col align-self-center>
-              1 of 12
-            </ion-col>
-            <ion-col align-self-center>
-              2 of 12 
-            </ion-col>
-            <ion-col align-self-center>
-              3 of 12
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col align-self-center>
-              4 of 12
-            </ion-col>
-            <ion-col align-self-center>
-              5 of 12
-            </ion-col>
-            <ion-col align-self-center>
-              6 of 12
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col align-self-center>
-                7 of 12
-              </ion-col>
-              <ion-col align-self-center>
-                8 of 12
-              </ion-col>
-              <ion-col align-self-center>
-                9 of 12
-              </ion-col>
-            </ion-row>
-        </ion-grid>
+    </ion-grid>
 
 
 </ion-content>

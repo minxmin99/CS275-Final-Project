@@ -37,3 +37,10 @@ ion-grid {
     max-height: 20vh;
     overflow: hidden;
   }
+
+page-home {
+  .image-container {
+      min-height: 200px;
+      background-size: cover;
+  }
+}
