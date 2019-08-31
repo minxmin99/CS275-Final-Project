@@ -63,7 +63,7 @@
   --ion-color-medium: #989aa2;
   --ion-color-medium-rgb: 152, 154, 162;
   --ion-color-medium-contrast: #ffffff;
-  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-contrast-rgb: 255,   255, 255;
   --ion-color-medium-shade: #86888f;
   --ion-color-medium-tint: #a2a4ab;
 
@@ -80,9 +80,21 @@
   --ion-font-family: 'Righteous';
 }
 
+.custom-avaModal {
+  // background-color: rgb(87, 87, 87) !important;
+  > div {
+    background: rgb(87, 87, 87)  !important;
+    color: rgb(255, 255, 255) !important;
+  }
+}
+
 @font-face {
-  font-family: 'Righteous', cursive;
+  font-family: 'Righteous';
   font-style: normal;
   font-weight: normal;
-  src: url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+  src: url('../assets/fonts/Righteous-Regular.ttf');
+}
+
+* {
+  font-family: 'Righteous';
 }

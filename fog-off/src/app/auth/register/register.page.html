@@ -1,10 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Fog Off</ion-title>
+    <ion-button (click)="backLogin()">
+      <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
+<ion-content color="secondary">
   <form #form="ngForm" (ngSubmit)="register(form)">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
@@ -14,16 +17,16 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-input name="name" type="text" placeholder="Name" ngModel required></ion-input>
+              <ion-input color="light" name="username" type="text" placeholder="Username" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+              <ion-input color="light" name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+              <ion-input color="light" name="password" type="password" placeholder="Password" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="confirm" type="password" placeholder="Password Again" ngModel required></ion-input>
+              <ion-input color="light" name="confirm" type="password" placeholder="Password Again" ngModel required></ion-input>
             </ion-item>
           </div>
           <div padding>

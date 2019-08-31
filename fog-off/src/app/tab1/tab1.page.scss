@@ -18,3 +18,11 @@
 .p05 {
   padding: 0.5em;
 }
+
+.custom-avaModal {
+  // background-color: rgb(87, 87, 87) !important;
+  > div {
+    background: rgb(87, 87, 87)  !important;
+    color: rgb(255, 255, 255) !important;
+  }
+}

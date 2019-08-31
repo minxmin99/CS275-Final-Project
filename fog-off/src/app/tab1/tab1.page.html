@@ -3,13 +3,17 @@
 		<ion-title>
 		Profile
 		</ion-title>
+		<ion-button slot="end" (click)="clickLogout()">
+			<ion-icon name="log-out" slot="icon-only"  ></ion-icon>
+		</ion-button>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
 
 	<ion-card class="welcome-card" (click)="openAvaModal()">
-		<img src="/assets/character.gif" alt="" />
+		<!-- <img src="/assets/character1.gif" alt="" /> -->
+		<img src='{{ character }}' alt="" />
 	</ion-card>
 
 	<!-- <ion-list inset lines="none"> -->	
@@ -20,14 +24,14 @@
 	<ion-row>
 		<ion-col align-self-center text-center>
 			<ion-item text-center color="clear" class="ion-padding fs2">
-				<ion-label>	Statistics </ion-label>
+				<ion-label color="light"> Statistics </ion-label>
 			</ion-item>
 		</ion-col>
 	</ion-row>
 	
 	<ion-row>
 		<ion-col align-self-center text-center>
-			<ion-button class="button-large button-full" fill="clear" color="dark" (click)="openAlert()">
+			<ion-button class="button-large button-full" fill="clear" color="light" (click)="openAlert()">
 				<div>
 					<ion-icon slot="start" color="vibrant" name="person"></ion-icon>
 					<br>
@@ -46,8 +50,8 @@
 						<ion-label>Level</ion-label>
 					</div>
 				</ion-button>
-				<ion-card-content id="lvl">
-						<ion-badge item-end color="danger" class="fs1 p05">17</ion-badge>
+				<ion-card-content>
+						<ion-badge item-end color="danger" class="fs1 p05" id="level" [innerHTML]="level">17</ion-badge>
 				</ion-card-content>
 			</ion-card>
 		</ion-col>
@@ -64,7 +68,7 @@
 				</ion-button>
 				
 				<ion-card-content color="royal" id="dist">
-					<ion-badge item-end color="danger" class="fs1 p05">8 km</ion-badge>
+					<ion-badge item-end color="danger" class="fs1 p05" id="distance" [innerHTML]="distance">8 km</ion-badge>
 				</ion-card-content>
 			</ion-card>
 		</ion-col>

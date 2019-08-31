@@ -7,14 +7,28 @@ import { NavController, ModalController } from '@ionic/angular';
 })
 export class ModalPagePage implements OnInit {
   
-  newAva: string = "New Ava";
+  newAva: string = "1";
   constructor(private nav:NavController, private modalCtrl:ModalController) { }
 
   ngOnInit() {
+    
+  }
+
+  onClick(event) {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    this.newAva = idAttr.nodeValue;
+    console.log("Character select ID " + this.newAva)
+
+    this.dismissAvaModal();
   }
 
   dismissAvaModal() {
     this.modalCtrl.dismiss(this.newAva);
+  }
+
+  backClick() {
+    this.modalCtrl.dismiss(null);
   }
 
 }

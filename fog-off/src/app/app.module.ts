@@ -15,6 +15,8 @@ import { AlertPagePageModule } from './alert-page/alert-page.module';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { Geolocation} from '@ionic-native/geolocation/ngx';
 
+import { AuthModule } from './auth/auth.module';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,7 +24,9 @@ import { Geolocation} from '@ionic-native/geolocation/ngx';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     ModalPagePageModule, 
-    AlertPagePageModule],
+    AlertPagePageModule,
+    AuthModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,

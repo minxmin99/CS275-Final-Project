@@ -4,8 +4,19 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
+  { 
+    path:  'login', loadChildren:  './auth/login/login.module#LoginPageModule' 
+  },
+  {
+    path: 'tabs', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  { 
+    path:  'register', loadChildren:  './auth/register/register.module#RegisterPageModule' 
+  },
+
   { path: 'modal-page', loadChildren: './modal-page/modal-page.module#ModalPagePageModule' },
   { path: 'alert-page', loadChildren: './alert-page/alert-page.module#AlertPagePageModule' }
 ];

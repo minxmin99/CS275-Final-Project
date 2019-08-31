@@ -103,27 +103,15 @@ export class TileProvider {
 
   checkNewTileCoord(x: number, y: number, zoom: number) {
 
-    var URL: string = "https://api.maptiler.com/maps/darkmatter/256/" + zoom +  "/" + x + "/" + y + ".png?key=eekFiCeDrAQ6v31lORdC"
-    
+    // var URL: string = "https://api.maptiler.com/maps/darkmatter/256/" + zoom +  "/" + x + "/" + y + ".png?key=eekFiCeDrAQ6v31lORdC"
+    var URL: string = "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/69233539_961137734225423_3085006177570914304_n.jpg?_nc_cat=106&_nc_oc=AQlP-9nnQ7NbE4NV7VSly162WlMzboOPTO5189DSiqTMvWjqGd3ASLzFYyxxvsAok3A&_nc_ht=scontent-ort2-2.xx&oh=63efdd74c6dafff2f4c068499840c7a8&oe=5DC8F413"
     // Get current location TileCoord
     let currentTileLoc_x = this.getTileCoord(this.currentLoc, zoom - 1)[0].toFixed();
     let currentTileLoc_y = this.getTileCoord(this.currentLoc, zoom - 1)[1].toFixed();
-
-    // let left_Loc_x = (this.getTileCoord(this.currentLoc, zoom - 1)[0] - 1).toFixed();
-    // let right_Loc_x = (this.getTileCoord(this.currentLoc, zoom - 1)[0] + 1).toFixed();
-    
-    // let up_Loc_y = (this.getTileCoord(this.currentLoc, zoom - 1)[1] + 1).toFixed();
-    // let low_Loc_y = (this.getTileCoord(this.currentLoc, zoom - 1)[1] - 1).toFixed();
     
     // Check if current location TileCoord is the same as newly reqeuested TileCoord
     if (currentTileLoc_x == x.toString() && currentTileLoc_y == y.toString()) {
         // // (x, y)
-        // (left_Loc_x == x.toString() && currentTileLoc_y == y.toString()) || 
-        // (right_Loc_x == x.toString() && currentTileLoc_y == y.toString()) || 
-        // // (x-1, y) (x+1, y)
-        // (currentTileLoc_x == x.toString() && up_Loc_y == y.toString()) ||
-        // (currentTileLoc_x == x.toString() && low_Loc_y == y.toString()) ) {
-        // // (x, y-1) (x, y+1)
       return null
     } else {
       return URL  

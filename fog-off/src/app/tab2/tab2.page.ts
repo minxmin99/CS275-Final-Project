@@ -18,6 +18,7 @@ import {
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NavController, Platform } from '@ionic/angular'
+import { AuthService } from '../auth/auth.service';
 
 @Component({
 	selector: 'app-tab2',
@@ -32,6 +33,7 @@ export class Tab2Page {
 	constructor(
 		public googleMaps: GoogleMaps, 
 		private geolocation: Geolocation,
+		private authService: AuthService,
 		public plt: Platform,
 		public nav: NavController) {}
 
@@ -283,9 +285,23 @@ export class Tab2Page {
 			tileSize: 256,
 			opacity: 0.8,
 		  
-			debug: true
+			debug: false // Set true to see tile debug information
 		};
 
 		return options
 	}
+
+	clickLogout() {
+
+		console.log("Tab1 Logout");
+		this.authService.logout();
+	
+		this.authService.authSubject.subscribe((res) => {
+	
+		  console.log("Tab1 after Logout " + res);
+		  if (res == false) {
+			this.nav.navigateRoot("login")
+		  }
+		})
+	  }
 }
