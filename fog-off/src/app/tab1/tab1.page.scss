@@ -45,6 +45,7 @@
   padding: 0.5em;
 }
 
+<<<<<<< HEAD
 .ion-color-neongreen {
   --ion-color-base: var(--ion-color-neongreen);
   --ion-color-base-rgb: var(--ion-color-neongreen-rgb);
@@ -79,4 +80,12 @@
   --ion-color-contrast-rgb: var(--ion-color-persianred-contrast-rgb);
   --ion-color-shade: var(--ion-color-persianred-shade);
   --ion-color-tint: var(--ion-color-persianred-tint);
+=======
+.custom-avaModal {
+  // background-color: rgb(87, 87, 87) !important;
+  > div {
+    background: rgb(87, 87, 87)  !important;
+    color: rgb(255, 255, 255) !important;
+  }
+>>>>>>> eed2c5aac5fa49c08570d763e209cc0f5be30f91
 }

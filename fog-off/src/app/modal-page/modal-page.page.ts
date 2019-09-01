@@ -13,10 +13,21 @@ export class ModalPagePage implements OnInit {
   blue_adv = "assets/adventurers/Blue_Adv.png";
   green_adv = "assets/adventurers/Green_Adv.png";
 
-  constructor(private nav:NavController, private modalCtrl:ModalController) {
-  }
+  
+  newAva: string = "1";
+  constructor(private nav:NavController, private modalCtrl:ModalController) { }
 
   ngOnInit() {
+    
+  }
+
+  onClick(event) {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    this.newAva = idAttr.nodeValue;
+    console.log("Character select ID " + this.newAva)
+
+    this.dismissAvaModal();
   }
 
   dismissAvaModal() {
@@ -38,6 +49,10 @@ export class ModalPagePage implements OnInit {
 
   dismissGreen() {
     this.modalCtrl.dismiss(this.green_adv);
+  }
+
+  backClick() {
+    this.modalCtrl.dismiss(null);
   }
 
 }

@@ -6,35 +6,28 @@ import { NavController } from '@ionic/angular';
 templateUrl: 'tab3.page.html',
 styleUrls: ['tab3.page.scss']
 })
-export class NewsFeedPage {
-  items = [];
+ 
+export class Tab3Page {
 
-  constructor() {
-    for (let i = 0; i < 30; i++) {
-      this.items.push( this.items.length );
-    }
-  }
+  @ViewChild(IonInfiniteScroll, {static: false}) infiniteScroll: IonInfiniteScroll;
 
-  doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
+  constructor(public navCtrl: NavController) { }
 
+  loadData(event) {
     setTimeout(() => {
-      for (let i = 0; i < 30; i++) {
-        this.items.push( this.items.length );
-      }
+      console.log('Done');
+      event.target.complete();
 
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      // if (data.length == 1000) {
+      //   event.target.disabled = true;
+      // }
     }, 500);
   }
 
-}
- 
-@Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html'
-})
-export class Tab3Page {
-  galleryType = 'regular';
-  constructor(public navCtrl: NavController) { }
+  toggleInfiniteScroll() {
+    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  }
+
 }
