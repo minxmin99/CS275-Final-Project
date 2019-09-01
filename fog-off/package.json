@@ -20,8 +20,8 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
-    "@ionic-native/core": "^5.0.0",
-    "@ionic-native/geolocation": "^5.11.0",
+    "@ionic-native/core": "^5.13.0",
+    "@ionic-native/geolocation": "^5.13.0",
     "@ionic-native/google-maps": "^5.5.0",
     "@ionic-native/image-resizer": "^5.12.0",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -37,7 +37,6 @@
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-googlemaps": "^2.6.2",
     "core-js": "^2.5.4",
-    "info.protonet.imageresizer": "^0.1.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "variable": "0.0.3",
@@ -87,15 +86,9 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-geolocation": {},
-      "cordova-plugin-googlemaps": {
-        "PLAY_SERVICES_VERSION": "15.0.1",
-        "ANDROID_SUPPORT_V4_VERSION": "27.+",
-        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
-        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
-      },
+      "cordova-plugin-googlemaps": {},
       "cordova-plugin-androidx": {},
-      "cordova-plugin-androidx-adapter": {},
-      "info.protonet.imageresizer": {}
+      "cordova-plugin-androidx-adapter": {}
     },
     "platforms": [
       "ios",
