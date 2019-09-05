@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title> Edit your character</ion-title>
+    
+    <ion-title> 
+      <ion-icon name="body" color="light"></ion-icon>
+    </ion-title>
 
     <ion-buttons slot="start">
       <ion-back-button defaultHref="tab1" (click)="backClick()"
@@ -12,9 +15,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="vague-content">
-  <ion-button class="cc_spacing" expand="block" shape="round" size="large" color="persianred" (click)="dismissRed()"></ion-button>
-  <ion-button class="cc_spacing" expand="block" shape="round" size="large" color="ksupurple" (click)="dismissPurple()"></ion-button>
-  <ion-button class="cc_spacing" expand="block" shape="round" size="large" color="cerulean" (click)="dismissBlue()"></ion-button>
-  <ion-button class="cc_spacing" expand="block" shape="round" size="large" color="neongreen" (click)="dismissGreen()"></ion-button>
+<ion-content>
+
+  <ion-grid #char id="character" style="height: 100%;">
+  
+      <ion-row>
+
+        <ion-col align-self-center text-center (click)="onClick($event)" size="6" *ngFor='let image of [1,2,3,4]'>
+            <img class="image-container" id="{{image}}" src='/assets/adventurers/{{image}}.png'>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+    
 </ion-content>

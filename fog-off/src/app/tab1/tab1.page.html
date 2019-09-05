@@ -11,46 +11,9 @@
 
 <ion-content>
 
-<<<<<<< HEAD
-	<!--<ion-card (click)="openAvaModal()">
-		<img [src]="imageSrc" class="u_char" alt="" />
-	</ion-card>-->
-	<ion-row>
-		<ion-col align-self-center text-center>
-			<ion-button class="button-large button-full" fill="clear" color="dark" (click)="openAlert()">
-				<div>
-					<ion-icon slot="start" color="vibrant" name="person"></ion-icon>
-					<br>
-					<ion-label id="username" [innerHTML]="username"> Player 1</ion-label>
-				</div>
-			</ion-button>
-		</ion-col>
-	</ion-row>
-
 	<div class="char_container one-edge-shadow" (click)="openAvaModal()">
-		<img [src]="imageSrc" class="u_char center_char" alt="" />
+		<img src="{{ character }}" class="u_char center_char" alt="" />
 	</div>
-
-	<ion-row>
-		<ion-col align-self-center text-center>
-			<ion-button class="button-large button-full" fill="clear" color="light" (click)="openAvaModal()">
-				<ion-icon name="body" color="light"></ion-icon>
-				<ion-label color="light"> Edit Character</ion-label>
-			</ion-button>
-		</ion-col>
-	</ion-row>
-	
-=======
-	<ion-card class="welcome-card" (click)="openAvaModal()">
-		<!-- <img src="/assets/character1.gif" alt="" /> -->
-		<img src='{{ character }}' alt="" />
-	</ion-card>
->>>>>>> eed2c5aac5fa49c08570d763e209cc0f5be30f91
-
-	<!-- <ion-list inset lines="none"> -->	
-	<!-- <ion-list-header> -->
-		<!-- <ion-label>Player Information</ion-label> -->
-	<!-- </ion-list-header> -->
 
 	<ion-row>
 		<ion-col align-self-center text-center>
@@ -59,9 +22,7 @@
 			</ion-item>
 		</ion-col>
 	</ion-row>
-<<<<<<< HEAD
 
-=======
 	
 	<ion-row>
 		<ion-col align-self-center text-center>
@@ -74,7 +35,7 @@
 			</ion-button>
 		</ion-col>
 	</ion-row>
->>>>>>> eed2c5aac5fa49c08570d763e209cc0f5be30f91
+
 	<ion-row>
 		<ion-col align-self-center text-center>
 			<ion-card color="tertiary">
@@ -91,6 +52,7 @@
 			</ion-card>
 		</ion-col>
 	</ion-row>
+
 	<ion-row>
 		<ion-col align-self-center text-center>
 			<ion-card color="tertiary">

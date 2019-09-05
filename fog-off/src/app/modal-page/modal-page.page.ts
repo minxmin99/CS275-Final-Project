@@ -31,25 +31,25 @@ export class ModalPagePage implements OnInit {
   }
 
   dismissAvaModal() {
-    this.modalCtrl.dismiss();
+    this.modalCtrl.dismiss(this.newAva);
   }
 
   //Sends back the char path, and returns to the main page to update changes
-  dismissRed() {
-    this.modalCtrl.dismiss(this.red_adv);
-  }
+  // dismissRed() {
+  //   this.modalCtrl.dismiss(this.red_adv);
+  // }
 
-  dismissPurple() {
-    this.modalCtrl.dismiss(this.purple_adv);
-  }
+  // dismissPurple() {
+  //   this.modalCtrl.dismiss(this.purple_adv);
+  // }
 
-  dismissBlue() {
-    this.modalCtrl.dismiss(this.blue_adv);
-  }
+  // dismissBlue() {
+  //   this.modalCtrl.dismiss(this.blue_adv);
+  // }
 
-  dismissGreen() {
-    this.modalCtrl.dismiss(this.green_adv);
-  }
+  // dismissGreen() {
+  //   this.modalCtrl.dismiss(this.green_adv);
+  // }
 
   backClick() {
     this.modalCtrl.dismiss(null);

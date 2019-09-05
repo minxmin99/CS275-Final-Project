@@ -20,7 +20,7 @@ export class Tab1Page {
   username: string = "Player 1";
   distance: string = "0 km";
   level: number = 1;
-  public character: string = "/assets/character1.gif";
+  public character: string = "Blue_Adv";
   email: string;
 
   constructor(
@@ -46,7 +46,7 @@ export class Tab1Page {
             this.username = this.data.user.username;
             this.level = this.data.user.level;
             this.distance = this.data.user.distance + " km";
-            this.character = "/assets/character" + this.data.user.character + ".gif";
+            this.character = "/assets/adventurers/" + this.data.user.character + ".png";
           }
         }
       });
@@ -54,36 +54,31 @@ export class Tab1Page {
     
   imageSrc = "assets/adventurers/Blue_Adv.png";
 
-  testoutput: string = "yessir";
   async openAvaModal() {
+    
     const avaModal = await this.modalCtr.create({
       component: ModalPagePage,
-<<<<<<< HEAD
       componentProps: {
-        red_adv: "assets/adventurers/Red_Adv.png",
-        purple_adv: "assets/adventurers/Purple_Adv.png",
-        blue_adv: "assets/adventurers/Blue_Adv.png",
-        green_adv: "assets/adventurers/Green_Adv.png",
       }
 
     });
     
-    avaModal.onDidDismiss().then((detail: OverlayEventDetail) => {
-      // Get new characters
-      if ((detail.data).includes("assets/adventurers/")){
-        this.imageSrc = detail.data;
-      } else { //prevents any changes when pressing back button
-        this.imageSrc = this.imageSrc;
-      }
-=======
-      cssClass: "customcss"
-    });
+    // avaModal.onDidDismiss().then((detail: OverlayEventDetail) => {
+    //   // Get new characters
+    //   if ((detail.data).includes("assets/adventurers/")){
+    //     this.imageSrc = detail.data;
+    //   } else { //prevents any changes when pressing back button
+    //     this.imageSrc = this.imageSrc;
+    //   }
+    //   cssClass: "customcss"
+    // });
 
       avaModal.onDidDismiss().then((data) => {
         // Get new characters
         
         if (data['data'] != null) {
-          this.character = "/assets/character" + data['data'] + ".gif";
+          console.log(data['data'])
+          this.character = "/assets/adventurers/" + data['data'] + ".png";
 
           let update_user: User = {
             character: data['data'], 
@@ -106,7 +101,6 @@ export class Tab1Page {
 
     }).catch((err) => {
       console.log("Open AvaModal error " + err);
->>>>>>> eed2c5aac5fa49c08570d763e209cc0f5be30f91
     });
 
     return await avaModal.present();
